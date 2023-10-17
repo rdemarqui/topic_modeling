@@ -67,7 +67,7 @@ Another interesting option provided by the module is document-level analysis, wh
 
 <p align="center">
   <img src="images\BERTopic_map.png" class="center" width="90%"/>
-  <br><em>Figure 3 - BERTopic Documents and Topics chart</em>
+  <br><em>Figure 4 - BERTopic Map fo documents</em>
 </p>
 
 In summary, we can say that both methodologies are good text analysis tools. However, despite LDA being a more established methodology, we believe that BERTopic is a better option. This is because it is a transformer-based neural network model capable of capturing the semantic value between words, resulting in more consistent groups and offering various built-in perspectives for analysis without the need for additional code.
