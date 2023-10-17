@@ -31,12 +31,23 @@ First, a script was created to scrape company data, and for this task, Python pa
 
 After obtaining the data, we performed text cleaning, using normalization techniques (punctuation, lowercase, accents, special characters), removal of stop words, lemmatization, and the removal of words with low TF-IDF scores. Removing low TF-IDF words is essential in topic modeling because these words probably provide little discriminatory power and can dominate topics. By excluding them, the model focuses on more meaningful and distinctive terms, improving topic quality and helping to identify relevant keywords that truly characterize the underlying topics in a corpus.
 
-Finally, two distinct topic modeling techniques were applied. The first model applied was LDA, using the Gensim module, and for visualization, the pyLDAvis package. As a second analytical methodology, the pre-trained model in Portuguese rufimelo/bert-large-portuguese-cased-sts was used to tokenize the text, and BERTopic for visualization. While in the first technique, we used the text with all preprocessing techniques, in the second, we used only the normalized text with stop-word removal.
+Finally, two distinct topic modeling techniques were applied. The first model applied was LDA, using the Gensim module, and for visualization, the pyLDAvis package. As a second analytical methodology, the pre-trained model in Portuguese `rufimelo/bert-large-portuguese-cased-sts` was used to tokenize the text, and BERTopic for visualization. While in the first technique, we used the text with all preprocessing techniques, in the second, we used only the normalized text with stop-word removal.
 
 The results can be seen below or, if you prefer, in the notebook `02. topic_modeling_customer_claim.ipynb`.
 
 ## Results and Conclusions
-To do
+Classify and assign topics in a complaints dataset is quite challenging, as users can assign more than one subject in a single complaint, such as unauthorized charges and service interruption. Both techniques were able to assign more than one topic to the same complaint. Below, some insights.
+
+### LDA
+One issue with using LDA is that we need to specify in advance the number of topics that the algorithm needs to consider, making it a somewhat trial-and-error activity. Since the reclameaqui website has labels assigned by users themselves, we was able to use this information as a parameter in the model. The `pyLDAvis` module provides an interesting dashboard with grouped topics, along with the most relevant terms. This helped us to understand the nature of the complaint dataset, as in the case below where the topic 10 has the most relevant term as 'recarga' (recharge). By examining the other topics, we can see that LDA did a good job in separating the groups.
+
+<p align="center">
+  <img src="images\pyLDAvis.png" class="center" width="80%"/>
+  <br><em>Figure 1 - pyLDAvis dashboard</em>
+</p>
+
+### BERTopic
+
 
 ## References
 * [1] https://blog.reclameaqui.com.br/reclame-aqui-bate-recorde-de-reclamacoes-em-dezembro-de-2021/
