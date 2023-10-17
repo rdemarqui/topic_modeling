@@ -1,4 +1,10 @@
-# topic_modeling
+<div align="center">
+<h1>Customer Complaint Analysis with Topic Modeling</h1>
+</div>
+
+<p align="center">
+<img src="images\cover.png" class="center" width="45%"/>
+</p>
 
 ## Overview
 To do
