@@ -3,7 +3,7 @@
 </div>
 
 <p align="center">
-<img src="images\cover.png" class="center" width="45%"/>
+<img src="images\cover.png" class="center" width="60%"/>
 </p>
 
 ## Overview
@@ -42,16 +42,35 @@ Classify and assign topics in a complaints dataset is quite challenging, as user
 One issue with using LDA is that we need to specify in advance the number of topics that the algorithm needs to consider, making it a somewhat trial-and-error activity. Since the reclameaqui website has labels assigned by users themselves, we was able to use this information as a parameter in the model. The `pyLDAvis` module provides an interesting dashboard with grouped topics, along with the most relevant terms. This helped us to understand the nature of the complaint dataset, as in the case below where the topic 10 has the most relevant term as 'recarga' (recharge). By examining the other topics, we can see that LDA did a good job in separating the groups.
 
 <p align="center">
-  <img src="images\pyLDAvis.png" class="center" width="80%"/>
+  <img src="images\pyLDAvis.png" class="center" width="70%"/>
   <br><em>Figure 1 - pyLDAvis dashboard</em>
 </p>
 
 ### BERTopic
+While LDA works with term frequency, ignoring the semantic similarity between words, BERTopic operates with word embeddings, assigning similar vectors to words with the same semantic value. Semantic value can be highly valuable in this case, as it involves text collected from the internet with completely free-form writing.
 
+Another advantage of BERTopic is that we can suggest the number of topics or let the model determine the value of this parameter. Additionally, the module offers more visualization options, which greatly enriches the analysis.
+
+<p align="center">
+  <img src="images\BERTopic_distance_map.png" class="center" width="90%"/>
+  <br><em>Figure 2 - BERTopic Intertopic Distance Map and Topic Wors Scores</em>
+</p>
+
+Comparing labels with the topics assigned by BERTopic, we can see that the data presented by the model is quite consistent. Examples: Group 1, with the highest-scoring words 'recarga' and 'credito' (recharge and credit), has the most labels related to 'problema com recarga' (recharge issue), 'corte indevido de linha' (unauthorized line disconnection), and 'consumo de crédito' (credit consumption), which are closely related issues. We can say the same in relation to topic 5 with the words 'internet' and 'sinal' (signal) as the highest scoring - ignoring the word 'claro', which is the name of the operator - with the labels 'qualidade de internet' (internet quality) and 'instabilidade de sinal' (signal instability).
+
+<p align="center">
+  <img src="images\BERTopic_topic_per_class.png" class="center" width="90%"/>
+  <br><em>Figure 3 - BERTopic Topics Per Class</em>
+</p>
+
+Another interesting option provided by the module is document-level analysis, where we can plot each of them and assess the interrelation between topics:
+
+<p align="center">
+  <img src="images\BERTopic_map.png" class="center" width="90%"/>
+  <br><em>Figure 3 - BERTopic Documents and Topics chart</em>
+</p>
+
+In summary, we can say that both methodologies are good text analysis tools. However, despite LDA being a more established methodology, we believe that BERTopic is a better option. This is because it is a transformer-based neural network model capable of capturing the semantic value between words, resulting in more consistent groups and offering various built-in perspectives for analysis without the need for additional code.
 
 ## References
 * [1] https://blog.reclameaqui.com.br/reclame-aqui-bate-recorde-de-reclamacoes-em-dezembro-de-2021/
-* https://k3ybladewielder.medium.com/topic-modelling-682f74fc5e63
-* https://medium.com/@romanegger1/list/b66c8d01f326
-* https://medium.com/@power.up1163/visualizing-topic-models-with-topicwizard-ee5b4428405e
-* https://towardsdatascience.com/topic-modeling-with-lsa-plsa-lda-nmf-bertopic-top2vec-a-comparison-5e6ce4b1e4a5
