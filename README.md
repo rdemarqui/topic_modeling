@@ -31,7 +31,9 @@ First, a script was created to scrape company data, and for this task, Python pa
 
 After obtaining the data, we performed text cleaning, using normalization techniques (punctuation, lowercase, accents, special characters), removal of stop words, lemmatization, and the removal of words with low TF-IDF scores. Removing low TF-IDF words is essential in topic modeling because these words probably provide little discriminatory power and can dominate topics. By excluding them, the model focuses on more meaningful and distinctive terms, improving topic quality and helping to identify relevant keywords that truly characterize the underlying topics in a corpus.
 
-Finally, two distinct topic modeling techniques were applied. The first model applied was LDA, using the Gensim module, and for visualization, the pyLDAvis package. As a second analytical methodology, the pre-trained model in Portuguese rufimelo/bert-large-portuguese-cased-sts was used to tokenize the text, and BERTopic for visualization. While in the first technique, we used the text with all preprocessing techniques, in the second, we used only the normalized text with stop-word removal. The results can be seen below or, if you prefer, in the notebook `02. topic_modeling_customer_claim.ipynb`.
+Finally, two distinct topic modeling techniques were applied. The first model applied was LDA, using the Gensim module, and for visualization, the pyLDAvis package. As a second analytical methodology, the pre-trained model in Portuguese rufimelo/bert-large-portuguese-cased-sts was used to tokenize the text, and BERTopic for visualization. While in the first technique, we used the text with all preprocessing techniques, in the second, we used only the normalized text with stop-word removal.
+
+The results can be seen below or, if you prefer, in the notebook `02. topic_modeling_customer_claim.ipynb`.
 
 ## Results and Conclusions
 To do
